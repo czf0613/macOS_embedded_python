@@ -175,9 +175,11 @@ def process_deps(initial_lib: str, is_exe: bool = False):
             process_deps(v)
 
 
-if __name__ == "__main__":
+def process_python_bundles(py_version: str):
+    print("开始处理python原生bundle")
+
     # cpython里面有很多用原生实现的库，那些库可能会依赖一些dylibs，也要处理
-    bundles = glob.glob(f"../lib/python3.13/lib-dynload/*.so")
+    bundles = glob.glob(f"../lib/python{py_version}/lib-dynload/*.so")
 
     for bundle in bundles:
         # 处理python的动态库，这个库相当于macOS上面的bundle类型，可以复用exe的处理逻辑
@@ -190,7 +192,9 @@ if __name__ == "__main__":
     )
 
     subprocess.run(
-        f"codesign -f -s - ../lib/python3.13/lib-dynload/*.so",
+        f"codesign -f -s - ../lib/python{py_version}/lib-dynload/*.so",
         check=True,
         shell=True,
     )
+
+    print("处理完成，可以开始测试")

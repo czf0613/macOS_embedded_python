@@ -3,10 +3,11 @@ python官方没有提供像Windows那种开箱即可用的embedded python。这�
 虽说有一个Python-Apple-Support项目提供了一个Python.xcframework的东西，但有的情况下，我就只是想要一个python运行时的时候，把整个framework搞进来难免是有点高射炮打蚊子了。
 
 ## 使用方法
-**注意！这个工程只限于macOS arm64架构**
+**注意！这个工程只限于macOS arm64架构。如需x64版本，请尝试使用builder文件夹下的脚手架自行构建。请查看builder目录下的README文件的说明。**
 
 
-把这个工程克隆下来，其中的builder文件夹是不需要的，那个是用来生成这一个嵌入式python的时候用的一些脚手架。有效的东西一共就是这五个：`Python`可执行文件、`lib/`是自带的标准库、`dylib/`是所需的动态库、`run.sh`用于执行程序、`pip.sh`用来安装第三方库。
+把这个工程克隆下来，其中的`builder`文件夹是不需要的，那个是用来生成这一个嵌入式python的时候用的一些脚手架。
+有效的东西一共就是这五个：`Python`可执行文件、`lib/`是自带的标准库、`dylib/`是所需的动态库、`run.sh`用于执行程序、`pip.sh`用来安装第三方库。
 
 当然，常用的tkinter、sqlite、crypto、ssl功能一样不缺，全部都移植好了。
 
