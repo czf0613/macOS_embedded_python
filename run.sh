@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-cd "$(dirname "$0")"
-export PYTHONHOME="$(pwd)"
-export PYTHONPATH="$(pwd)/lib/site-packages"
+BASE_DIR="$(dirname "$0")"
+export PYTHONHOME="$BASE_DIR"
+export PYTHONPATH="$BASE_DIR/lib/site-packages"
 
-./python "$@"
+"$BASE_DIR/python" "$@"

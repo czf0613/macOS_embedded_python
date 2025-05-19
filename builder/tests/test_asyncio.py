@@ -2,9 +2,9 @@ import asyncio
 
 
 async def main():
-    print("Hello, World!")
+    print("test...")
     await asyncio.sleep(1)
-    print("Goodbye, World!")
+    print("asyncio success!")
 
 
 if __name__ == "__main__":
