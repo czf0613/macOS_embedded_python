@@ -3,6 +3,6 @@ set -e
 
 cd "$(dirname "$0")"
 export PYTHONHOME="$(pwd)"
-export PYTHONPATH="$(pwd)/site-packages"
+export PYTHONPATH="$(pwd)/lib/site-packages"
 
 ./Python "$@"
